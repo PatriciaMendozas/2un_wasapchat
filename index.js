@@ -17,11 +17,9 @@ io.on('connection', function(socket){
 });
 
 
-//http.listen(8080,function(){
-	//console.log('Express run on port 8080');
-//});
-
-http.listen(process.env.PORT, function () {
-  console.log('Express run on port 8080');
+http.listen(8080,function(){
+	console.log('Express run on port 8080');
 });
+
+
 
