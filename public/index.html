@@ -53,7 +53,7 @@
 			max-width: 178%;
 			padding: 2% 0%;
 		}
-
+		
 		.mg0{
 			margin: 0%;
 		}
@@ -83,7 +83,18 @@
 			background:url("http://img3.todoiphone.net/wp-content/uploads/2014/03/WhatsApp-Wallpaper-30.jpg");
 			}
 		
-		
+		@media(max-width:991px){
+			.foto2{
+				max-width: 60px;
+			}
+			.border_buscar{
+				margin-left: 2%;
+			}
+			.border_media{
+				border-bottom:1px solid #B2B2B2;
+				text-align: center;
+			}
+		}
 	</style>
 </head>
 <body>
@@ -92,8 +103,8 @@
 
 			<div class="row arriba ">
 				<div class="col-md-4">
-					<div class="row">
-						<div class="col-md-2 mg0"><img class="foto"src="https://scontent-grt2-1.xx.fbcdn.net/v/t1.0-9/12715736_1003281066377450_7069962673418698348_n.jpg?oh=3fa1175479dc0137995ffa2df90367c0&oe=57E22C58"></div>
+					<div class="row border_media">
+						<div class="col-md-2 mg0"><img class="foto foto2"src="https://scontent-grt2-1.xx.fbcdn.net/v/t1.0-9/12715736_1003281066377450_7069962673418698348_n.jpg?oh=3fa1175479dc0137995ffa2df90367c0&oe=57E22C58"></div>
 						<div class="col-md-8 text-center"><p class="srilo_lt"> <spam><strong>Estado:</spam></strong>"Detras de una gran mujer,hay un cabron que le pone el pie para que se caiga."</p></div>
 						<div class="col-md-2">
 						<i class="icono1 pull-right glyphicon glyphicon-list-alt"></i>
@@ -102,7 +113,7 @@
 					</div>
 				</div>
 				<div class="col-md-8 ">
-					<div class="row ">
+					<div class="row border_media ">
 						<div class="col-md-2 "><img class="foto"src="https://d262ilb51hltx0.cloudfront.net/fit/c/60/60/1*zksGmHsUGSEqbtzrQMuhVA.png"></div>
 						<div class="col-md-8 "><p class="mg0 srilo_lt"><strong>Laboratoria Arequipa</strong></p>
 						<p class="srilo_lt"><strong>Patty :)</strong></p>
@@ -215,7 +226,7 @@
 				$('#ultimo_mj').append('<p>' + _msg + '</p>');
 				}
 		});
-
+		
 	</script>
 </body>
 </html>
