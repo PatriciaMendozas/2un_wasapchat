@@ -266,6 +266,7 @@
 			if(!checkUser(nombre))
 			{
 				$('#nombres').append('<li class="list-group-item">' + nombre + '</li>');
+				listUsers.push(nombre);
 			}
 			
 			$('#ultimo_mj').html('');
