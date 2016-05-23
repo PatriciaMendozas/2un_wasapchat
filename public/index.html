@@ -150,12 +150,9 @@
 								<button class="srilo_lt " onclick="guardarNombre()">Entrar</button>
 							</div>
 							<div id="chat" class="well ">
-								
 								<input srilo_lt type="text" id="mensaje" class="form-control srilo_lt ">
 								<button class="  srilo_lt" onclick="enviarMensaje()">Enviar mensaje</button>
 								<button class=" srilo_lt" onclick="limpiarMensajes()">Limpiar mensajes</button>
-								
-
 								<p>
 									<small class="srilo_lt" style="font-size:11px;">Chat creado por Patricia Mendoza Soncco</small>
 								</p>
@@ -166,7 +163,23 @@
 		</div>
 	</div>
 	
+	<script>
+  		window.fbAsyncInit = function() {
+		    FB.init({
+		      appId      : '1724034374550565',
+		      xfbml      : true,
+		      version    : 'v2.6'
+		    });
+		  };
 
+		  (function(d, s, id){
+		     var js, fjs = d.getElementsByTagName(s)[0];
+		     if (d.getElementById(id)) {return;}
+		     js = d.createElement(s); js.id = id;
+		     js.src = "//connect.facebook.net/en_US/sdk.js";
+		     fjs.parentNode.insertBefore(js, fjs);
+		   }(document, 'script', 'facebook-jssdk'));
+	</script>
 
 	<script>
 		var socket = io('/');
@@ -204,27 +217,31 @@
 			else{
 				for (i=0; i<x; i++)
 				{
+					
 					if (cont[i]==nombre) {
 						cont[i]=nombre;
-						
-						break;
+						//alert(i);
+						o=1;
 						} 
 					else {
-						i++;
+						
 						}
 					
 				}
-				if (i==x){
-
+				if (o==0){
+					//alert(x);
 					cont[x]=nombre;
 					$('#nombres').append('<li class="list-group-item">' + _msg + '</li>');
-					x=x+1;	}
+					x=x+1;
+					o=0;
+					}
 				else{
 					
+						}
+				
 				}
 				$('#ultimo_mj').html('');
 				$('#ultimo_mj').append('<p>' + _msg + '</p>');
-				}
 		});
 		
 	</script>
