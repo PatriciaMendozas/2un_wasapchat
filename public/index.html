@@ -260,7 +260,7 @@
 		socket.on('nuevo_mensaje', function (_msg)
 		{
 			$('#lista_mensajes').append('<li class="list-group-item">' + _msg + '</li>');
-<<<<<<< HEAD
+
 			var indexEnd = _msg.indexOf('</span>');
 			var indexStart = 33;
 			
@@ -274,43 +274,6 @@
 			$('#ultimo_mj').html('');
 			$('#ultimo_mj').append('<p>' + _msg + '</p>');
 			
-=======
-
-			if (x==0){
-				cont[x]=nombre;
-				$('#nombres').append('<li class="list-group-item">' + _msg + '</li>');
-				$('#ultimo_mj').append('<p>' + _msg + '</p>');
-				x=x+1;
-				}
-			else{
-				for (i=0; i<x; i++)
-				{
-					
-					if (cont[i]==nombre) {
-						cont[i]=nombre;
-						//alert(i);
-						o=1;
-						} 
-					else {
-						
-						}
-					
-				}
-				if (o==0){
-					//alert(x);
-					cont[x]=nombre;
-					$('#nombres').append('<li class="list-group-item">' + _msg + '</li>');
-					x=x+1;
-					o=0;
-					}
-				else{
-					
-						}
-				
-				}
-				$('#ultimo_mj').html('');
-				$('#ultimo_mj').append('<p>' + _msg + '</p>');
->>>>>>> 406de5de2a751d3dbfc038b784f446230afb93df
 		});
 		
 	</script>
