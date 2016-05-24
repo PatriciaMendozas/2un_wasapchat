@@ -52,7 +52,7 @@
 		.foto{
 			border-radius: 100%;
 			max-width: 178%;
-			padding: 2% 0%;
+			padding: 6% 0%;
 			}
 		.mg0{
 			margin: 0%;
@@ -64,6 +64,10 @@
 			padding: 7px;
 			background-color: #E8E9EB;
 			}
+		.btnp{
+			margin-top: 2.5%;
+		}
+
 		.icono1{
 			padding: 15px 1px;
 				}
@@ -71,8 +75,11 @@
 			background-color: #fff;
 			overflow: scroll;
 			padding-top: 3%;
-			height: 458px;
+			height: 468px;
 			}
+		#lista_mensajes{
+			padding:2%;
+		}
 		#buscar{
 			width: 95%;
 			border:none;
@@ -84,11 +91,23 @@
 			background:url("http://img3.todoiphone.net/wp-content/uploads/2014/03/WhatsApp-Wallpaper-30.jpg");
 			}
 		.border_media{
-			border-right:1px solid #000;
+			border-left:1px solid #000;
+
 			}
 		.icono1, .glyphicon{
 			color: #4F7EAD;
 			}
+		.label-danger{
+			font-size: 16px;
+			font-family: Calibri, Candara, Segoe, 'Segoe UI', Optima, Arial, sans-serif;
+			color:#F19726;
+			background-color: transparent;
+
+		}
+		.list-group{
+			width: 47%;
+		}
+
 		@media(max-width:991px){
 			.foto2{
 				max-width: 60px;
@@ -108,8 +127,8 @@
 		<div class="container mg2">
 
 			<div class="row arriba ">
-				<div class="col-md-4">
-					<div class="row border_media">
+				<div class="col-md-4 ">
+					<div class="row ">
 						<div class="col-md-2 mg0"><img class="foto foto2"src="https://scontent-grt2-1.xx.fbcdn.net/v/t1.0-9/12715736_1003281066377450_7069962673418698348_n.jpg?oh=3fa1175479dc0137995ffa2df90367c0&oe=57E22C58"></div>
 						<div class="col-md-8 text-center"><p class="srilo_lt"> <spam><strong>Estado:</spam></strong>"Detras de una gran mujer,hay un cabron que le pone el pie para que se caiga."</p></div>
 						<div class="col-md-2">
@@ -118,12 +137,12 @@
 						 </div>
 					</div>
 				</div>
-				<div class="col-md-8 ">
-					<div class="row border_media ">
+				<div class="col-md-8 border_media">
+					<div class="row ">
 						<div class="col-md-2 "><img class="foto"src="https://d262ilb51hltx0.cloudfront.net/fit/c/60/60/1*zksGmHsUGSEqbtzrQMuhVA.png"></div>
 						<div class="col-md-8 "><p class="mg0 srilo_lt"><strong>Laboratoria Arequipa</strong></p>
 						<p class="srilo_lt"><strong>Patty :)</strong></p>
-						<p id="ultimo_mj" class="srilo_lt"></p>
+						<p id="ultimo_mj" class="srilo_lt text-center"></p>
 						</div>
 						<div class="col-md-2">
 						<i class="icono1 pull-right glyphicon glyphicon-list-alt"></i>
@@ -140,8 +159,10 @@
 							<input type="text" id="buscar" class="buscador srilo_lt" placeholder="Buscar o empezar un nuevo Chat" >
 							</input>
 						</div>
-						<div class="list_mens foto_chat">
-							<ul id="nombres" class="list-group srilo_lt"></ul>
+						<div class="list_mens foto_chat text-center">
+							<ul id="nombres" class="list-group srilo_lt">
+								
+							</ul>
 						</div>
 					</div>
 				</div>	
@@ -153,22 +174,21 @@
 							<div id="bienvenida" class="well ">
 								<h5 class="srilo_lt " style="font-size:15px;">Hola, por favor ingresa tu nombre para entrar al chat</h5>
 								<input type="text" id="nombre" class="form-control">
-								<button class="srilo_lt " onclick="guardarNombre()">Entrar</button>
+								<button class="srilo_lt btnp" onclick="guardarNombre()">Entrar</button>
 							</div>
 							<div id="chat" class="well ">
 								<input srilo_lt type="text" id="mensaje" class="form-control srilo_lt ">
-								<button class="  srilo_lt" onclick="enviarMensaje()">Enviar mensaje</button>
-								<button class=" srilo_lt" onclick="limpiarMensajes()">Limpiar mensajes</button>
-								<div
-								  class="fb-like"
+								<button class="btnp srilo_lt" onclick="enviarMensaje()">Enviar mensaje</button>
+								<button class="btnp srilo_lt" onclick="limpiarMensajes()">Limpiar mensajes</button>
+								<div  class="fb-like pull-left btnp"
 								  data-share="true"
 								  data-width="450"
 								  data-show-faces="true">
 								</div>
-
 								<p>
 									<small class="srilo_lt" style="font-size:11px;">Chat creado por Patricia Mendoza Soncco</small>
 								</p>
+								
 							</div>
 						</div>	
 				</div>
@@ -253,7 +273,9 @@
 			
 			if(!checkUser(nombre))
 			{
+				 
 				$('#nombres').append('<li class="list-group-item">' + nombre + '</li>');
+
 				listUsers.push(nombre);
 			}
 			
