@@ -12,13 +12,17 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 	<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+
 	
+
 	<style>
+
 	/**{
 	outline:1px solid rgba(255,0,0,0.3);}*/
 		.cont_tamano{
-			height: 350px;
-			overflow: scroll;
+			height: 351px;
+			background-size: cover;
+			
 		}
 		.srilo_lt{
 			color:#233F5F;
@@ -73,13 +77,12 @@
 				}
 		.list_mens{
 			background-color: #fff;
-			overflow: scroll;
+			background-size: cover;
+			/*overflow: scroll;*/
 			padding-top: 3%;
-			height: 468px;
+			height: 497px;
 			}
-		#lista_mensajes{
-			padding:2%;
-		}
+		
 		#buscar{
 			width: 95%;
 			border:none;
@@ -104,9 +107,50 @@
 			background-color: transparent;
 
 		}
-		.list-group{
+		
+		.list-group-item, .ancho_integ{
 			width: 47%;
+			margin: 2% 2%;
+			padding:2%;
+			border-bottom-left-radius: 19px;
+			border-bottom-right-radius: 17px;
+			border-top-right-radius: 17px;
 		}
+		
+		.patty{
+			width: 47%;
+			margin: 2% 2%;
+			padding:2%;
+			background-color: #DCF8C6;
+			float: right;
+			}
+		.scrollp{
+			margin-left: 30px;
+			float: left;
+			height: 300px;
+			width: 65px;
+			background: #F5F5F5;
+			overflow-y: scroll;
+			margin-bottom: 25px;
+				}
+		#style-1::-webkit-scrollbar-track
+			{
+				-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+				border-radius: 10px;
+				background-color: #F5F5F5;
+			}
+			#style-1::-webkit-scrollbar
+			{
+				width: 12px;
+				background-color: #F5F5F5;
+			}
+
+			#style-1::-webkit-scrollbar-thumb
+			{
+				border-radius: 10px;
+				-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+				background-color: #555;
+			}
 
 		@media(max-width:991px){
 			.foto2{
@@ -152,7 +196,7 @@
 				</div>	
 			</div>
 			<div class="row abajo ">
-				<div class="col-md-4">
+				<div class="col-md-4 "  >
 					<div class="row ">
 						<div class="border_buscar">
 							<i class="glyphicon glyphicon-zoom-in"></i>
@@ -166,9 +210,9 @@
 						</div>
 					</div>
 				</div>	
-				<div class="col-md-8">
-						<div class="row foto_chat ">
-							<div class=" cont_tamano">
+				<div class="col-md-8 ">
+						<div class="row foto_chat">
+							<div class=" cont_tamano" >
 								<ul id="lista_mensajes" class="list-group srilo_lt"></ul>
 							</div>			
 							<div id="bienvenida" class="well ">
@@ -195,7 +239,16 @@
 			</div>
 		</div>
 	</div>
-
+	<script>
+    (function($){
+        $(window).load(function(){
+            $(".prueba").mCustomScrollbar({
+            	theme:"dark-thin"
+            });
+            	
+        });
+    })(jQuery);
+</script>
 	<script>//codigo para saber cuantas personas entran a mi pagina a traves de google
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -232,7 +285,8 @@
 		var listUsers = new Array();
 		var x=0;
 		var i=0;
-		var o=0;
+		var cont_integ=0;
+
 		function guardarNombre()
 		{
 			nombre = $('#nombre').val();
@@ -264,19 +318,43 @@
 
 		socket.on('nuevo_mensaje', function (_msg)
 		{
-			$('#lista_mensajes').append('<li class="list-group-item">' + _msg + '</li>');
-
+			
 			var indexEnd = _msg.indexOf('</span>');
 			var indexStart = 33;
-			
 			var nombre = _msg.substring(indexStart, indexEnd);
-			
+			if (nombre=="Patty") {
+
+				$('#lista_mensajes').append('<li class="list-group-item patty">' + _msg + '</li>');
+			} 
+			else {
+					$('#lista_mensajes').append('<li class="list-group-item">' + _msg + '</li>');
+			}
 			if(!checkUser(nombre))
 			{
-				 
-				$('#nombres').append('<li class="list-group-item">' + nombre + '</li>');
-
-				listUsers.push(nombre);
+				switch (cont_integ){
+					case 0:
+						$('#nombres').append('<li class="list-group-item-success ancho_integ">' + nombre + '</li>');
+						listUsers.push(nombre);
+						cont_integ=1
+						break;
+					case 1:
+						$('#nombres').append('<li class="list-group-item-info ancho_integ">' + nombre + '</li>');
+						listUsers.push(nombre);
+						cont_integ=2
+						break;
+					case 2:
+						$('#nombres').append('<li class="list-group-item-warning ancho_integ">' + nombre + '</li>');
+						listUsers.push(nombre);
+						cont_integ=3
+						break;
+					case 3:
+						$('#nombres').append('<li class="list-group-item-danger ancho_integ">' + nombre + '</li>');
+						listUsers.push(nombre);
+						cont_integ=0
+						break;
+				}
+				
+				
 			}
 			
 			$('#ultimo_mj').html('');
