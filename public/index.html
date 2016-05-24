@@ -5,21 +5,21 @@
 	<title>Title</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
 	<link rel="stylesheet" href="css/font-awesome.css">
     <!--<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.js">-->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 	<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+	
 	<style>
 	/**{
 	outline:1px solid rgba(255,0,0,0.3);}*/
 		.cont_tamano{
-
-			height: 429px;
+			height: 350px;
 			overflow: scroll;
 		}
-		
 		.srilo_lt{
 			color:#233F5F;
 			font-family: 'Big Caslon', 'Book Antiqua', 'Palatino Linotype', Georgia, serif;
@@ -29,13 +29,11 @@
 			background: url("https://scontent-grt2-1.xx.fbcdn.net/v/t1.0-9/13240076_1066962823342607_1870583144777676715_n.jpg?oh=fc73b5c7ac43ab69fcf07dabfa7c3f56&oe=57E4331D");
 			background-size: cover;
 		}
-	
 		#bienvenida
 		{
 			border: 1px solid #708E89;
 			margin: 10px;
 		}
-		
 		#chat
 		{
 			margin: 10px;
@@ -43,46 +41,54 @@
 			display: none;
 		}
 		.arriba{
-			background-color:#EEEEEE;
+			background-color:#E8E9EB;
 		}
 		.abajo{
 			background-color:#fff;
-		}
+			-moz-box-shadow: 0px 5px 7px #121a17;
+			-webkit-box-shadow: 0px 5px 7px #121a17;
+			box-shadow: 0px 5px 7px #121a17;
+			}
 		.foto{
 			border-radius: 100%;
 			max-width: 178%;
 			padding: 2% 0%;
-		}
-		
+			}
 		.mg0{
 			margin: 0%;
-		}
+			}
 		.mg2{
 			padding:2%;
-		}
-
-		
+			}
+		.well{
+			padding: 7px;
+			background-color: #E8E9EB;
+			}
 		.icono1{
 			padding: 15px 1px;
-		}
+				}
 		.list_mens{
 			background-color: #fff;
 			overflow: scroll;
 			padding-top: 3%;
-			height: 560px;
+			height: 458px;
 			}
 		#buscar{
-			width: 94%;
+			width: 95%;
 			border:none;
-
-					}
+			}
 		.border_buscar{
 			border:1px solid #B2B2B2;
-		}
+			}
 		.foto_chat{
 			background:url("http://img3.todoiphone.net/wp-content/uploads/2014/03/WhatsApp-Wallpaper-30.jpg");
 			}
-		
+		.border_media{
+			border-right:1px solid #000;
+			}
+		.icono1, .glyphicon{
+			color: #4F7EAD;
+			}
 		@media(max-width:991px){
 			.foto2{
 				max-width: 60px;
@@ -145,7 +151,7 @@
 								<ul id="lista_mensajes" class="list-group srilo_lt"></ul>
 							</div>			
 							<div id="bienvenida" class="well ">
-								<h5 class="srilo_lt" style="font-size:15px;">Hola, por favor ingresa tu nombre para entrar al chat</h5>
+								<h5 class="srilo_lt " style="font-size:15px;">Hola, por favor ingresa tu nombre para entrar al chat</h5>
 								<input type="text" id="nombre" class="form-control">
 								<button class="srilo_lt " onclick="guardarNombre()">Entrar</button>
 							</div>
@@ -199,25 +205,7 @@
 </script>
 
 	
-	<script>//
-  		window.fbAsyncInit = function() {
-		    FB.init({
-		      appId      : '1724034374550565',
-		      xfbml      : true,
-		      version    : 'v2.6'
-		    });
-		  };
-
-
-		  (function(d, s, id){
-		     var js, fjs = d.getElementsByTagName(s)[0];
-		     if (d.getElementById(id)) {return;}
-		     js = d.createElement(s); js.id = id;
-		     js.src = "//connect.facebook.net/en_US/sdk.js";
-		     fjs.parentNode.insertBefore(js, fjs);
-		   }(document, 'script', 'facebook-jssdk'));
-	</script>
-
+	
 	<script>
 		var socket = io('/');
 		var nombre;
@@ -275,5 +263,6 @@
 		});
 		
 	</script>
+
 </body>
 </html>
