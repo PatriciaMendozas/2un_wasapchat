@@ -19,8 +19,10 @@
 
 	/**{
 	outline:1px solid rgba(255,0,0,0.3);}*/
+		html { overflow:hidden; }
+
 		.cont_tamano{
-			height: 390px;
+			height: 325px;
 			background-size: cover;
 			overflow-y: scroll;
 			
@@ -29,19 +31,22 @@
 			color:#233F5F;
 			font-family: 'Big Caslon', 'Book Antiqua', 'Palatino Linotype', Georgia, serif;
 		}
-		#fondo
+		.fondo
 		{
 			background: url("https://scontent-grt2-1.xx.fbcdn.net/v/t1.0-9/13240076_1066962823342607_1870583144777676715_n.jpg?oh=fc73b5c7ac43ab69fcf07dabfa7c3f56&oe=57E4331D");
 			background-size: cover;
 		}
+		
 		#bienvenida
 		{
 			border: 1px solid #708E89;
-			margin: 10px;
+			padding: 18%  18%  18% 4%;
+			background: url("http://ecotrip.es/wp-content/uploads/2016/04/redes_sociales.jpg");
+			background-size: cover;
 		}
 		#chat
 		{
-			margin: 10px;
+			
 			border: 1px solid #708E89;
 			display: none;
 		}
@@ -63,15 +68,12 @@
 			margin: 0%;
 			}
 		.mg2{
-			padding:3.5%;
+			padding:3.5% 0% 5%;
 			}
 		.pd0{
 			padding: 0% 2%;
 		}
-		.well{
-			padding: 7px;
-			background-color: #E8E9EB;
-			}
+	
 		.btnp{
 			margin-top: 2.5%;
 		}
@@ -84,7 +86,7 @@
 			background-size: cover;
 			overflow-y: scroll;
 			padding-top: 3%;
-			height: 497px;
+			height: 450px;
 			}
 		
 		#buscar{
@@ -113,9 +115,9 @@
 		}
 		
 		.list-group-item, .ancho_integ{
-			width: 47%;
-			margin: 2% 2%;
-			padding:2%;
+			width: 40%;
+			margin: 2% ;
+			padding:1%;
 			border-bottom-left-radius: 19px;
 			border-bottom-right-radius: 17px;
 			border-top-right-radius: 17px;
@@ -123,10 +125,13 @@
 		.magl{
 			margin-left: 6%;
 		}
+		.mglad{
+			width: 26%;
+		}
 		.patty{
 			width: 47%;
-			margin: 2% 2%;
-			padding:2%;
+			margin: 2% 2% 2% 4%;
+			padding:1%;
 			background-color: #DCF8C6;
 			float: right;
 			}
@@ -149,9 +154,7 @@
 				-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
 				background-color: #555;
 			}
-			#bienvenida{
-				margin: 0%;
-			}
+			
 		@media(max-width:991px){
 			.foto2{
 				max-width: 60px;
@@ -163,11 +166,28 @@
 				border-bottom:1px solid #B2B2B2;
 				text-align: center;
 			}
+			.mglad{
+				width: 57%;
+			}
+			html{
+				overflow: visible;
+			}
 		}
 	</style>
 </head>
 <body>
-	<div id="fondo">
+<div  id=”miVentana”>
+	
+		<div id="bienvenida" class="well">
+			<h5 class="srilo_lt " style="font-size:30px;"><strong>Bienvenid@</strong>, a mi Whatssapatty</h5>
+			<h5 class="srilo_lt " style="font-size:20px;">Por favor ingresa tu nombre para ingresar</h5>
+			<input type="text" id="nombre" class="form-control btnp mglad">
+			<button class="btn btn-warning btnp" onclick="guardarNombre(),ocultarVentana()">Entrar al Chat</button>
+		</div>
+		
+</div>
+
+	<div class="fondo">
 		<div class="container mg2">
 
 			<div class="row arriba ">
@@ -195,8 +215,8 @@
 					</div>	
 				</div>	
 			</div>
-			<div class="row abajo ">
-				<div class="col-md-4 "  >
+			<div class="row abajo">
+				<div class="col-md-4">
 					<div class="row ">
 						<div class="border_buscar">
 							<i class="glyphicon glyphicon-zoom-in"></i>
@@ -204,23 +224,16 @@
 							</input>
 						</div>
 						<div class="list_mens foto_chat scrollbar text-center" id="style-1" >
-							<ul id="nombres" class="list-group srilo_lt magl ">
-								
-							</ul>
+							<ul id="nombres" class="list-group srilo_lt magl "></ul>
 						</div>
 					</div>
 				</div>	
-				<div class="col-md-8 ">
+				<div class="col-md-8">
 						<div class="row foto_chat">
 							<div class=" cont_tamano scrollbar" id="style-1" >
 								<ul id="lista_mensajes" class="list-group srilo_lt"></ul>
 							</div>			
-							<div id="bienvenida" class="well mg0">
-								<h5 class="srilo_lt " style="font-size:15px;">Hola, por favor ingresa tu nombre para entrar al chat</h5>
-								<input type="text" id="nombre" class="form-control">
-								<button class="srilo_lt btnp1" onclick="guardarNombre()">Entrar</button>
-								
-							</div>
+							
 							<div id="chat" class="well mg0">
 								<input srilo_lt type="text" id="mensaje" class="form-control srilo_lt ">
 								<button class="btnp srilo_lt" onclick="enviarMensaje()">Enviar mensaje</button>
@@ -240,6 +253,16 @@
 			</div>
 		</div>
 	</div>
+	<script>
+		function ocultarVentana()
+		{
+    		var ventana = document.getElementById(‘miVentana’);
+    		ventana.style.display = ‘none’;
+    		
+    		
+    		   		
+    	}
+	</script>
 	<script>
     (function($){
         $(window).load(function(){
@@ -287,9 +310,10 @@
 		var x=0;
 		var i=0;
 		var cont_integ=0;
-
+	
 		function guardarNombre()
 		{
+			
 			nombre = $('#nombre').val();
 			$('#bienvenida').hide();
 			$('#chat').show();
