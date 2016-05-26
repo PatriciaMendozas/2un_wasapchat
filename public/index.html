@@ -10,8 +10,8 @@
 	<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 	<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
 	<style>
-	/**{
-	outline:1px solid rgba(255,0,0,0.3);}*/
+	*{
+	outline:1px solid rgba(255,0,0,0.3);}
 		html { overflow:hidden; }
 		.cont_tamano{height: 325px;background-size: cover;overflow-y: scroll;}
 		.srilo_lt{color:#233F5F;font-family: 'Big Caslon', 'Book Antiqua', 'Palatino Linotype', Georgia, serif;	}
@@ -21,7 +21,8 @@
 		.arriba{background-color:#E8E9EB; }
 		.abajo{ background-color:#fff; -moz-box-shadow: 0px 5px 7px #121a17; -webkit-box-shadow: 0px 5px 7px #121a17;
 			box-shadow: 0px 5px 7px #121a17;}
-		.foto{ border-radius: 100%; max-width: 178%; padding: 6% 0%; }
+		.foto{ border-radius: 100%; max-width: 56%; padding: 6% 0%; }
+		.foto2{ border-radius: 100%; max-width: 155%; padding: 19% 0%; }
 		.mg0{ margin: 0%; }
 		.mg2{ padding:6% 0%; }
 		.pd0{ padding: 0% 2%; }
@@ -45,6 +46,11 @@
 		.scrollbar::-webkit-scrollbar { width: 8px; background-color: #F5F5F5; 	}
 		.scrollbar::-webkit-scrollbar-thumb { border-radius: 10px; 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
 				background-color: #555; }
+		.cont_tamano, .cont_tamano > ul{
+   		 transform:rotateX(180deg);
+   		 -ms-transform:rotateX(180deg); /* IE 9 */
+   		 -webkit-transform:rotateX(180deg); /* Safari and Chrome */
+		}
 		@media(max-width:991px){ .foto2{ max-width: 60px;}.border_buscar{	margin-left: 2%;} .border_media{
 				border-bottom:1px solid #B2B2B2;text-align: center; } .mglad{width: 84%; } html{ overflow: visible;}
 			#bienvenida{padding: 59% 18%;} }
@@ -62,7 +68,7 @@
 			<div class="row arriba ">
 				<div class="col-md-4 ">
 					<div class="row ">
-						<div class="col-md-2 mg0"><img class="foto foto2"src="https://scontent-grt2-1.xx.fbcdn.net/v/t1.0-9/12715736_1003281066377450_7069962673418698348_n.jpg?oh=3fa1175479dc0137995ffa2df90367c0&oe=57E22C58"></div>
+						<div class="col-md-2 mg0"><img class="foto2 "src="https://scontent-grt2-1.xx.fbcdn.net/v/t1.0-9/12715736_1003281066377450_7069962673418698348_n.jpg?oh=3fa1175479dc0137995ffa2df90367c0&oe=57E22C58"></div>
 						<div class="col-md-8 text-center"><p class="srilo_lt"> <spam><strong>Estado:</spam></strong>"Detras de una gran mujer,hay un cabron que le pone el pie para que se caiga."</p></div>
 						<div class="col-md-2 pd0 ">
 						<i class="icono1 pull-right glyphicon glyphicon-list-alt"></i>
