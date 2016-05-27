@@ -10,29 +10,35 @@
 	<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 	<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
 	<style>
-	*{
+	/**{
 	outline:1px solid rgba(255,0,0,0.3);}
-		html { overflow:hidden; }
-		.cont_tamano{height: 325px;background-size: cover;overflow-y: scroll;}
+		html { overflow:hidden; }*/
+		#ultimo_mj > p > span{padding: 0%;}
+		.cont_tamano{height: 352px;background-size: cover;overflow-y: scroll;}
 		.srilo_lt{color:#233F5F;font-family: 'Big Caslon', 'Book Antiqua', 'Palatino Linotype', Georgia, serif;	}
 		.fondo 	{background: url("https://scontent-grt2-1.xx.fbcdn.net/v/t1.0-0/p206x206/13240076_1066962823342607_1870583144777676715_n.jpg?oh=6ff01de6897bad90ada5ef59207f5554&oe=57E61875"); background-size: cover; display: none; }
+		
 		#bienvenida { border: 1px solid #708E89;padding: 18%  18%  22% 4%;background: url("http://ecotrip.es/wp-content/uploads/2016/04/redes_sociales.jpg"); background-size: cover; }
 		#chat { border: 1px solid #708E89; display: none; }
 		.arriba{background-color:#E8E9EB; }
-		.abajo{ background-color:#fff; -moz-box-shadow: 0px 5px 7px #121a17; -webkit-box-shadow: 0px 5px 7px #121a17;
-			box-shadow: 0px 5px 7px #121a17;}
+		
 		.foto{ border-radius: 100%; max-width: 56%; padding: 6% 0%; }
 		.foto2{ border-radius: 100%; max-width: 155%; padding: 19% 0%; }
 		.mg0{ margin: 0%; }
-		.mg2{ padding:6% 0%; }
-		.pd0{ padding: 0% 2%; }
-		.btnp{ margin-top: 2.5%; }
+		.mg2{ padding:2% 0% 6%; }
+		.mgle{ margin-left: -5%; }
+		.pd2{ padding: 0% 2%; }
+	
+		.pd0{padding: 0%;}
+		.pd{ padding: 2% 0%; }
+		.pdt{padding: 2% 0% 0% 0%;}
+		.btnp{ margin-left: 2.5%; }
 		.icono1{ padding: 15px 1px;}
 		.list_mens{ background-color: #fff; background-size: cover; overflow-y: scroll; padding-top: 3%; height: 450px;	}
 		#buscar{ width: 95%; border:none; }
 		.border_buscar{ border:1px solid #B2B2B2; }
 		.foto_chat{ background:url("http://img3.todoiphone.net/wp-content/uploads/2014/03/WhatsApp-Wallpaper-30.jpg");}
-		.border_media{ border-left:1px solid #000; }
+		.border_media{ border-right:1px solid #000; }
 		.icono1, .glyphicon{ color: #4F7EAD; }
 		.label-danger{ font-size: 16px;	font-family: Calibri, Candara, Segoe, 'Segoe UI', Optima, Arial, sans-serif;
 			color:#F19726;background-color: transparent;}
@@ -53,37 +59,36 @@
 		}
 		@media(max-width:991px){ .foto2{ max-width: 60px;}.border_buscar{	margin-left: 2%;} .border_media{
 				border-bottom:1px solid #B2B2B2;text-align: center; } .mglad{width: 84%; } html{ overflow: visible;}
-			#bienvenida{padding: 59% 18%;} }
+			#bienvenida{padding: 59% 18%;} .foto2{margin-left: 43%;}}
 	</style>
 </head>
 <body>
-		<div id="bienvenida" class="well">
+		<div id="bienvenida" class="well ">
 			<h5 class="srilo_lt " style="font-size:30px;"><strong>Bienvenid@</strong>, a mi Whatssapatty</h5>
-			<h5 class="srilo_lt " style="font-size:20px;">Por favor ingresa tu nombre para ingresar</h5>
-			<input type="text" placeholder="Nombre de usuario" id="nombre" class="form-control btnp mglad" >
-			<button class="btn btn-warning btnp"  onclick="guardarNombre()">Entrar al Chat</button>
+			<h5 class="srilo_lt " style="font-size:20px;">Por favor escribe tu nombre para ingresar</h5>
+			<input type="text" placeholder="Nombre de usuario" id="nombre" class="form-control mglad mg0" >
+			<button class="btn btn-warning "  onclick="guardarNombre()">Entrar al Chat</button>
 		</div>
 	<div class="fondo" id="contenedor_chat">
 		<div class="container mg2">
 			<div class="row arriba ">
 				<div class="col-md-4 ">
-					<div class="row ">
-						<div class="col-md-2 mg0"><img class="foto2 "src="https://scontent-grt2-1.xx.fbcdn.net/v/t1.0-9/12715736_1003281066377450_7069962673418698348_n.jpg?oh=3fa1175479dc0137995ffa2df90367c0&oe=57E22C58"></div>
-						<div class="col-md-8 text-center"><p class="srilo_lt"> <spam><strong>Estado:</spam></strong>"Detras de una gran mujer,hay un cabron que le pone el pie para que se caiga."</p></div>
-						<div class="col-md-2 pd0 ">
+					<div class="row border_media">
+						<div class="col-md-2 "><img class="foto2 "src="https://scontent-grt2-1.xx.fbcdn.net/v/t1.0-9/12715736_1003281066377450_7069962673418698348_n.jpg?oh=3fa1175479dc0137995ffa2df90367c0&oe=57E22C58"></div>
+						<div class="col-md-8 text-center"><p class="srilo_lt pd"> <strong>Estado:</strong>"Los grandes espíritus siempre han tenido que luchar contra la oposición feroz de mentes mediocres"</p></div>
+						<div class="col-md-2 ">
 						<i class="icono1 pull-right glyphicon glyphicon-list-alt"></i>
 						<i class=" icono1 pull-right glyphicon glyphicon-th-list"></i>
 						 </div>
 					</div>
 				</div>
-				<div class="col-md-8 border_media">
+				<div class="col-md-8 ">
 					<div class="row ">
 						<div class="col-md-2 "><img class="foto"src="https://d262ilb51hltx0.cloudfront.net/fit/c/60/60/1*zksGmHsUGSEqbtzrQMuhVA.png"></div>
-						<div class="col-md-8 "><p class="mg0 srilo_lt"><strong>Laboratoria Arequipa</strong></p>
-						<p class="srilo_lt"><strong>Patty :)</strong></p>
-						<p id="ultimo_mj" class="srilo_lt text-center"></p>
+						<div class="col-md-8 mg0 mgle"><p class="mgle srilo_lt pdt mg0"><strong>Laboratoria Arequipa</strong></br><strong>Patty :)</strong></p>
+						<p id="ultimo_mj" class="srilo_lt pull-left pdt mg0 mgle"></p>
 						</div>
-						<div class="col-md-2">
+						<div class="col-md-2 pull-right">
 						<i class="icono1 pull-right glyphicon glyphicon-list-alt"></i>
 						<i class=" icono1 pull-right glyphicon glyphicon-paperclip"></i>
 						 </div>
@@ -110,16 +115,15 @@
 							</div>			
 							
 							<div id="chat" class="well mg0">
-								<input srilo_lt type="text" id="mensaje" class="form-control srilo_lt ">
-								<button class="btnp srilo_lt" onclick="enviarMensaje()">Enviar mensaje</button>
-								<button class="btnp srilo_lt" onclick="limpiarMensajes()">Limpiar mensajes</button>
+								<input type="text" id="mensaje" class="form-control srilo_lt" placeholder="Escribe tu mensaje">
+								<button class="srilo_lt pull-right btnp" onclick="limpiarMensajes()">Limpiar mensajes</button>
 								<div  class="fb-like pull-left btnp"
 								  data-share="true"
 								  data-width="450"
 								  data-show-faces="true">
 								</div>
 								<p>
-									<small class="srilo_lt " style="font-size:11px;">Chat creado por Patricia Mendoza Soncco</small>
+									<p class="srilo_lt btnp" style="font-size:11px;">Creado por Patricia Mendoza Soncco</p>
 								</p>
 								
 							</div>
